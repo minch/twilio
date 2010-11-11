@@ -9,16 +9,4 @@ module Twilio
     self.base_uri "#{TWILIO_URL}/#{account_sid}"
     self.basic_auth account_sid, auth_token
   end
-  
-  # DEPRECATED - use Twilio.connect
-  class Connection
-    include HTTParty
-    TWILIO_URL = "https://api.twilio.com/2008-08-01/Accounts"
-    
-    def initialize(account_sid, auth_token)
-      self.class.base_uri "#{TWILIO_URL}/#{account_sid}"
-      self.class.basic_auth account_sid, auth_token     
-    end
-  end
-  
 end

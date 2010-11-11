@@ -7,10 +7,10 @@ module Twilio
   class LocalPhoneNumber < TwilioObject
     def create(url, area_code = nil, method = 'POST', friendly_name = nil, options = {})
       Twilio.post("/IncomingPhoneNumbers/Local", :body => {
-        :VoiceUrl => url, 
-        :AreaCode => area_code, 
+        :VoiceUrl => url,
+        :AreaCode => area_code,
         :VoiceMethod => method,
-        :FriendlyName => friendly_name 
+        :FriendlyName => friendly_name
       }.merge(options))
     end
     
@@ -21,6 +21,6 @@ module Twilio
     def delete(phone_number_sid)
       Twilio.delete("/IncomingPhoneNumbers/#{phone_number_sid}")
     end
-    
+
   end
 end

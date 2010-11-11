@@ -12,5 +12,15 @@ module Twilio
     def get(incoming_sid)
       Twilio.get("/IncomingPhoneNumbers/#{incoming_sid}") 
     end
+
+    # TODO:  support PhoneNumber
+    def create(url, area_code = nil, method = 'POST', friendly_name = nil, options = {})
+      Twilio.post("/IncomingPhoneNumbers", :body => {
+        :VoiceUrl => url,
+        :AreaCode => area_code,
+        :VoiceMethod => method,
+        :FriendlyName => friendly_name
+      }.merge(options))
+    end
   end
 end
