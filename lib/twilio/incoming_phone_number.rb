@@ -22,5 +22,9 @@ module Twilio
         :FriendlyName => friendly_name
       }.merge(options))
     end
+
+    def update(incoming_sid, options = {})
+      Twilio.post("/IncomingPhoneNumbers/#{incoming_sid}", :body => options)
+    end
   end
 end
